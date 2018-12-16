@@ -1,28 +1,35 @@
-import React,{Component} from 'react'
+import React, {
+  Component
+} from 'react';
+import {
+  Row,
+  Col,
+  Input,
+  Button,
+} from 'antd';
 
-class Search extends Component{
+class Search extends Component {
 
-    handleClick(){
-        var search = document.getElementById('search').value;
-        this.props.searchItem(search);
-    }
+  handleClick() {
+    const search = document.getElementById('search').value;
+    this.props.searchItem(search);
+  }
 
-    render(){
-        return(
-            <div className='row'>
-                <div className='col-md-8 col-md-offset-1'>
-                    <div className='row'>
-                        <div className='col-md-8'>
-                            <input className="form-control"  id="search" type="text" placeholder="Please input here"/>
-                        </div>
-                        <div className='col-md-3'>
-                            <button className="btn" onClick={this.handleClick.bind(this)}>Search</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <Row>
+        <Col span={12}>
+          <Input id="search" placeholder="请输入" />
+        </Col>
+        <Col span={12}>
+          <Button
+            type="primary"
+            onClick={() => this.handleClick()}
+            style={{ marginLeft: 10 }}>搜索</Button>
+        </Col>
+      </Row>
+    )
+  }
 }
 
 export default Search
