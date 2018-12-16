@@ -20,6 +20,7 @@ class Picframe extends Component {
       source,
       quantity,
     } = this.props;
+
     const popid = name + index;
     return (
       <Card
