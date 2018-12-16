@@ -10,17 +10,17 @@ import {
 class Picframe extends Component {
 
   handleClick() {
-    this.props.addToCart(this.props.index1);
+    this.props.addToCart(this.props.index);
   }
 
   render() {
     const {
       name,
-      index1,
+      index,
       source,
       quantity,
     } = this.props;
-    const popid = name + index1;
+    const popid = name + index;
     return (
       <Card
         bodyStyle={{ padding: 0 }}

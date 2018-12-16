@@ -30,14 +30,13 @@ class Shopping1 extends Component {
   addCart(index) {
     const currentQty = this.state.qty;
     const selQty = this.state.selectQty;
-
-    console.log(currentQty);
     const indexNum = index / 1;
+
     if (currentQty[indexNum] > 0) {
       currentQty[indexNum]--;
       selQty[indexNum]++;
     } else {
-      alert('Sorry,out of stock.')
+      alert('很抱歉，已售罄！')
     }
 
     const {

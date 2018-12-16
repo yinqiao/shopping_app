@@ -1,88 +1,110 @@
-import React,{Component} from 'react'
-import { TransitionGroup } from 'react-transition-group'
+import React, {
+  Component
+} from 'react'
+import {
+  Row,
+  Card,
+  Button,
+} from 'antd'
 import EmptyCart from './EmptyCart'
-// import styles from '../Cart.css'
-class Cart extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            showCart1: true,
-            cart:[],
-            viewChanged:false
-        }
+
+class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showCart: false,
+      cart: [],
+      viewChanged: false
     }
+    this.handleClick = this.handleClick.bind(this)
+    this.handleRemove = this.handleRemove.bind(this)
+  }
 
-    handleClick(){
-        //event.preventDefault();
-        setTimeout(()=>{this.setState({showCart1: !this.state.showCart1})},0)
+  handleClick() {
+    setTimeout(() => {
+      this.setState({
+        showCart: !this.state.showCart
+      })
+    }, 0)
+  }
+
+  handleRemove(product, index) {
+    this.props.handleRemove(product, index);
+    setTimeout(() => {
+      this.setState({
+        showCart: !this.state.showCart
+      })
+    }, 100);
+    setTimeout(() => {
+      this.setState({
+        showCart: !this.state.showCart
+      })
+    }, 200);
+  }
+
+  render() {
+    const {
+      showCart
+    } = this.state;
+    const {
+      selectProducts,
+      qty, // 数量
+      pModel,
+    } = this.props;
+    let cartItems;
+    const len = selectProducts.length;
+    let totalPrice = 0;
+
+    for (let i = 0; i < qty.length; i++) {
+      totalPrice += pModel[i].price * qty[i];
     }
-
-    handleRemove(product,index){
-        this.props.handleRemove(product,index);
-        setTimeout(() => {
-            this.setState({showCart1:!this.state.showCart1})
-        , 0.1});
-        setTimeout(() => {
-            this.setState({showCart1:!this.state.showCart1})
-        , 0.2});
-    }
-
-    render(){
-        let cartItems;
-        const selProducts = this.props.selectProducts;
-
-        //const selProducts = this.props.selectProducts;
-        const len = selProducts.length;
-        let view;
-        let totalPrice = 0;
-        for(var i=0;i<this.props.qty.length;i++){
-            totalPrice += this.props.pModel[i].price * this.props.qty[i];
+    if (len !== 0) {
+      cartItems = qty.map((product, index) => {
+        if (product === 0) {
+          return null;
         }
-        if(len==0)
-        {
-            view = <EmptyCart/>
-        }
-        else{
-            cartItems = this.props.qty.map((product,index) =>{
-                return(
-                    product>0?
-                    <li className="cart-item" key={this.props.pModel[index].name}>
-                        <img className="product-image" src={this.props.pModel[index].path} />
-                        <div>
-                            <p>{this.props.pModel[index].name}</p>
-                            <p>{this.props.pModel[index].price}</p>
-                            <p>Quantity:{product}</p>
-                            <p>Total Price:{product*this.props.pModel[index].price}</p>
-                        </div>
-                        <button onClick={this.handleRemove.bind(this,product,index)}>Remove items</button>
-                        
-                    </li>
-                    :null
-                )
-            });
-            
-            let items = [];
-            for(var i=0;i<cartItems.length;i++){
-                items.push(cartItems[i]);
-            }
-            view = <div>
-                    
-                     <span>Total price is {totalPrice}</span>
-                     <TransitionGroup transitionName="fadeIn" transitionEnterTimeout={1} transitionLeaveTimeout={1} component="ul" className="cart-items">{cartItems}</TransitionGroup>
-                   </div>;
-        }
-        return(
-        <div className="container" style={{"padding": "100px 50px 10px"}} >
-            <button id="popbtn" type="button" className="btn btn-success" 
-                    onClick={this.handleClick.bind(this)}>
-                Your Cart
-            </button> 
-            <div>
-                {this.state.showCart1 ? "" : view}
-            </div>    
-        </div>
+        return (
+          <Card key={pModel[index].name}>
+            <Row type="flex">
+              <img
+                style={{ cursor: 'pointer', width: 300, height: 250 }}
+                src={pModel[index].path} />
+              <div style={{ marginLeft: 10 }}>
+                <p>标题：{pModel[index].name}</p>
+                <p>价格：{pModel[index].price}</p>
+                <p>数量：:{product}</p>
+                <p>共计:{product * pModel[index].price}</p>
+                <Button
+                  style={{ marginTop: 10 }}
+                  onClick={() => this.handleRemove(product, index)}>删除</Button>
+              </div>
+            </Row>
+          </Card>
         )
+      });
     }
+
+    return (
+      <div style={{ padding: '100px 50px 10px' }}>
+        <Button
+          id="popbtn"
+          type="Primary"
+          className="btn btn-success"
+          onClick={() => this.handleClick()}>我的购物车</Button>
+        <Row>
+          {
+            showCart && len === 0 ? <EmptyCart /> : null
+          }
+          {
+            showCart && len !== 0 ? <div>
+              <h3>共计：{totalPrice} 元</h3>
+              <div>{cartItems}</div>
+            </div> : null
+          }
+        </Row>
+      </div>
+    )
+  }
 }
 
 export default Cart

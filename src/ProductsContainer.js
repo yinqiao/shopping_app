@@ -26,10 +26,10 @@ function ProductsContainer(props) {
                 row.map((item, index) => (
                   <Item
                     addToCart={addCart}
-                    quantity={qty[index]}
+                    quantity={qty[item.index]}
                     source={item.path}
                     key={index}
-                    index1={index}
+                    index={item.index}
                     name={item.name} />
                 ))
               }
