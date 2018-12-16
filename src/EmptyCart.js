@@ -1,11 +1,16 @@
 import React from 'react';
+import {
+  Card,
+} from 'antd'
 
 function EmptyCart() {
   return (
-    <div className="empty-cart">
-      <img src="https://gw.alicdn.com/tfs/TB1UmxrwwHqK1RjSZFEXXcGMXXa-658-444.gif" alt="empty-cart" />
-      <h2>您的购物车还是空的</h2>
-    </div>
+    <Card style={{ marginTop: 10, width: 440 }}>
+      <img
+        style={{ width: 400 }}
+        src="https://gw.alicdn.com/tfs/TB1UmxrwwHqK1RjSZFEXXcGMXXa-658-444.gif" alt="empty-cart" />
+      <h3>您的购物车还是空的，快去添加商品吧！</h3>
+    </Card>
   )
 }
 

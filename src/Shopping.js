@@ -10,16 +10,18 @@ import {
   allProducts,
   filterProducts,
   productsModel,
+  allQuantity,
+  selectQuantity,
 } from './constants'
 
 class Shopping1 extends Component {
   constructor() {
     super();
     this.state = {
-      qty: [10, 8, 15, 5],
+      qty: allQuantity,
       products: allProducts,
       selectProducts: [],
-      selectQty: [0, 0, 0, 0],
+      selectQty: selectQuantity,
       filterProducts,
     }
     this.searchItem = this.searchItem.bind(this)

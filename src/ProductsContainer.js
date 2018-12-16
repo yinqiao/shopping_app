@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Row,
+  Card,
 } from 'antd';
 import Item from './item';
 import { arrayChunk } from './utils';
@@ -41,7 +42,7 @@ function ProductsContainer(props) {
   }
   return (
     <Row>
-      抱歉，没有找到商品！
+      <Card style={{ marginTop: 10, width: 920 }}>抱歉，没有找到商品！</Card>
     </Row>
   )
 }

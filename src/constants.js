@@ -22,6 +22,18 @@ export const allProducts = [{
   name: 'banana',
   price: '2.99',
   quantity: 5
+}, {
+  index: '4',
+  path: 'https://gw.alicdn.com/tfs/TB1hqhswwHqK1RjSZJnXXbNLpXa-1000-669.jpg',
+  name: 'kiwi berry',
+  price: '8.19',
+  quantity: 9
+}, {
+  index: '5',
+  path: 'https://gw.alicdn.com/tfs/TB13plpwq6qK1RjSZFmXXX0PFXa-1200-797.jpg',
+  name: 'pineapple',
+  price: '12.19',
+  quantity: 20
 }]
 
 export const filterProducts = [{
@@ -44,6 +56,17 @@ export const filterProducts = [{
   path: 'https://gw.alicdn.com/tfs/TB15SpewAvoK1RjSZFDXXXY3pXa-1200-800.jpg',
   name: 'banana',
   price: '2.99'
+}, {
+  index: '4',
+  path: 'https://gw.alicdn.com/tfs/TB1hqhswwHqK1RjSZJnXXbNLpXa-1000-669.jpg',
+  name: 'kiwi berry',
+  price: '8.19'
+}, {
+  index: '5',
+  path: 'https://gw.alicdn.com/tfs/TB13plpwq6qK1RjSZFmXXX0PFXa-1200-797.jpg',
+  name: 'pineapple',
+  price: '12.19',
+  quantity: 20
 }]
 
 export const productsModel = [{
@@ -62,4 +85,18 @@ export const productsModel = [{
   index: '3',
   path: 'https://gw.alicdn.com/tfs/TB15SpewAvoK1RjSZFDXXXY3pXa-1200-800.jpg',
   name: 'banana'
+}, {
+  index: '4',
+  path: 'https://gw.alicdn.com/tfs/TB1hqhswwHqK1RjSZJnXXbNLpXa-1000-669.jpg',
+  name: 'kiwi berry'
+}, {
+  index: '5',
+  path: 'https://gw.alicdn.com/tfs/TB13plpwq6qK1RjSZFmXXX0PFXa-1200-797.jpg',
+  name: 'pineapple',
+  price: '12.19',
+  quantity: 20
 }]
+
+export const allQuantity = [10, 8, 15, 5, 9, 20];
+
+export const selectQuantity = [0, 0, 0, 0, 0, 0];
