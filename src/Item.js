@@ -18,7 +18,7 @@ class Picframe extends Component {
       name,
       index,
       source,
-      quantity,
+      quantity
     } = this.props;
 
     const popid = name + index;
