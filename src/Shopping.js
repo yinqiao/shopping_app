@@ -14,7 +14,7 @@ import {
   selectQuantity,
 } from './constants'
 
-class Shopping1 extends Component {
+class Shopping extends Component {
   constructor() {
     super();
     this.state = {
@@ -126,4 +126,4 @@ class Shopping1 extends Component {
   }
 }
 
-export default Shopping1
+export default Shopping

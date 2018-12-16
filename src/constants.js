@@ -1,3 +1,6 @@
+/**
+ * 全部商品数据
+ */
 export const allProducts = [{
   index: '0',
   path: 'https://gw.alicdn.com/tfs/TB1UPdcwAPoK1RjSZKbXXX1IXXa-1200-800.jpg',
@@ -36,6 +39,9 @@ export const allProducts = [{
   quantity: 20
 }]
 
+/**
+ * 过滤的商品数据
+ */
 export const filterProducts = [{
   index: '0',
   path: 'https://gw.alicdn.com/tfs/TB1UPdcwAPoK1RjSZKbXXX1IXXa-1200-800.jpg',
@@ -69,6 +75,9 @@ export const filterProducts = [{
   quantity: 20
 }]
 
+/**
+ * 商品模型
+ */
 export const productsModel = [{
   index: '0',
   path: 'https://gw.alicdn.com/tfs/TB1UPdcwAPoK1RjSZKbXXX1IXXa-1200-800.jpg',
@@ -97,6 +106,12 @@ export const productsModel = [{
   quantity: 20
 }]
 
+/**
+ * 商品库存
+ */
 export const allQuantity = [10, 8, 15, 5, 9, 20];
 
+/**
+ * 加入购物车的商品数量
+ */
 export const selectQuantity = [0, 0, 0, 0, 0, 0];
