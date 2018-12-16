@@ -18,7 +18,8 @@ class Picframe extends Component {
       name,
       index,
       source,
-      quantity } = this.props;
+      quantity,
+  } = this.props;
 
     const popid = name + index;
     return (
@@ -52,8 +53,7 @@ class Picframe extends Component {
           style={{ marginBottom: 10 }}>
           <Button
             onClick={() => this.handleClick()}
-            type="primary"
-          > 加入购物车 </Button>
+            type="primary"> 加入购物车 </Button>
         </Row>
         {/* <div
           className="modal fade"
